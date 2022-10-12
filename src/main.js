@@ -133,6 +133,7 @@ const main = async () => {
 app.get('/', (req, res) => {
     res.send(`
     <h1 style="text-align:center">Bienvenido al servidor de -Juani Runco-</h1>
+    <h3 style="text-align:center">Para ver mas contenido "/productos" y un producto al azar "/productoRandom"</h3>
     `)
 });
 
@@ -149,8 +150,8 @@ const idRandom = (min, max) => {
 };
 
 app.get('/productoRandom', async (req, res) => {
-    const id = idRandom(1, 3)
-    const product = await contenedor.getById(id)
-    const showProduct = `Producto: ${product.title} - Precio: ${product.price} - ID: ${product.id}`
-    res.send(showProduct)
+    const id = idRandom(1, 3);
+    const product = await contenedor.getById(id);
+    const showProduct = `Producto: ${product.title} - Precio: ${product.price} - ID: ${product.id}`;
+    res.send(showProduct);
 });
