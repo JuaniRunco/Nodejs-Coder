@@ -62,14 +62,14 @@ class ProductsAPI {
 				title: data.title,
 				price: oldProduct.price,
 			}
-			return newProduct;
+
 		} else if (data.title === "" || data.title === undefined || data.title == null || data.title <= 0) {
 			newProduct = {
 				id: oldProduct.id,
 				title: oldProduct.title,
 				price: data.price,
 			}
-			return newProduct;
+
 		} else {
 			newProduct = {
 				id: oldProduct.id,
