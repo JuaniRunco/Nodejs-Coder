@@ -4,7 +4,7 @@ const createError = require('http-errors')
 class ProductsAPI {
 	constructor() {
 		this.products = [
-			{ id: uuidv4(), title: 'Computadora', price: 200 },
+			{ id: "1", title: 'Computadora', price: 200 },
 			{ id: uuidv4(), title: 'Notebook', price: 250 },
 			{ id: uuidv4(), title: 'Televisor', price: 300 },
 			{ id: uuidv4(), title: 'Heladera', price: 150 },
@@ -15,10 +15,11 @@ class ProductsAPI {
 	findId(id) {
 		const result = this.products.findIndex(product => product.id == id);
 		if (result === -1) throw createError(404, 'Producto no encontrado');
+
 	}
 
 	validateBody(data) {
-		if (!data.title || !data.price || typeof data.title !== 'string' || typeof data.price !== 'number') throw createError(400, 'Datos invalidos');
+		if (typeof data.title === 'number' || typeof data.price === 'string') throw createError(400, 'Datos invalidos');
 	}
 
 	getAll() {
@@ -53,11 +54,30 @@ class ProductsAPI {
 
 		const oldProduct = this.products[index];
 
-		const newProduct = {
-			id: oldProduct.id,
-			title: data.title,
-			price: data.price,
+		let newProduct;
+
+		if (data.price === undefined || data.price == null || data.price <= 0) {
+			newProduct = {
+				id: oldProduct.id,
+				title: data.title,
+				price: oldProduct.price,
+			}
+			return newProduct;
+		} else if (data.title === "" || data.title === undefined || data.title == null || data.title <= 0) {
+			newProduct = {
+				id: oldProduct.id,
+				title: oldProduct.title,
+				price: data.price,
+			}
+			return newProduct;
+		} else {
+			newProduct = {
+				id: oldProduct.id,
+				title: data.title,
+				price: data.price,
+			}
 		}
+
 		this.products.splice(index, 1, newProduct);
 
 		return newProduct;

@@ -12,15 +12,15 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const id = req.params.id;
 
-	const product = ProductsController.getById(id)
-	res.json({
-		msg: product
-	})
+    const product = ProductsController.getById(id)
+    res.json({
+        msg: product
+    })
 })
 
 router.post('/', (req, res) => {
 
-    const { body }  = req
+    const { body } = req
 
     res.json({
         msg: ProductsController.save(body)
@@ -29,10 +29,10 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
     const id = req.params.id;
-	const { body }  = req
+    const { body } = req
 
     res.json({
-        msg: ProductsController.update(id,body)
+        msg: ProductsController.update(id, body)
     })
 })
 
