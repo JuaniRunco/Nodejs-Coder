@@ -4,11 +4,11 @@ const createError = require('http-errors')
 class ProductsAPI {
 	constructor() {
 		this.products = [
-			{ id: "1", title: 'Computadora', price: 200 },
-			{ id: uuidv4(), title: 'Notebook', price: 250 },
-			{ id: uuidv4(), title: 'Televisor', price: 300 },
-			{ id: uuidv4(), title: 'Heladera', price: 150 },
-			{ id: uuidv4(), title: 'Licuadora', price: 170 }
+			{ id: "1", title: 'Computadora', price: 200, img: "https://i.postimg.cc/GmH4mv4h/download.jpg" },
+			{ id: uuidv4(), title: 'Notebook', price: 250, img: "https://i.postimg.cc/bNFvWdmX/download.jpg" },
+			{ id: uuidv4(), title: 'Televisor', price: 300, img: "https://i.postimg.cc/W41X3WMq/download.jpg" },
+			{ id: uuidv4(), title: 'Heladera', price: 150, img: "https://i.postimg.cc/d3VqSKdt/download.jpg" },
+			{ id: uuidv4(), title: 'Licuadora', price: 170, img: "https://i.postimg.cc/sgh3LmBS/download.jpg" }
 		];
 	}
 
@@ -19,7 +19,7 @@ class ProductsAPI {
 	}
 
 	validateBody(data) {
-		if (typeof data.title === 'number' || typeof data.price === 'string') throw createError(400, 'Datos invalidos');
+		if (typeof data.title === 'number') throw createError(400, 'Datos invalidos');
 	}
 
 	getAll() {
@@ -35,11 +35,10 @@ class ProductsAPI {
 
 	save(data) {
 		this.validateBody(data);
-
 		const newProduct = {
 			id: uuidv4(),
 			title: data.title,
-			price: data.price,
+			price: parseInt(data.price),
 		}
 		this.products.push(newProduct);
 

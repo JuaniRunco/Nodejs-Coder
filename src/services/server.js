@@ -1,18 +1,24 @@
 const express = require('express');
 const mainRouter = require('../routes/index');
+const path = require('path');
+const {ProductsController} = require('../controller/products');
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api', mainRouter);
+app.set('view engine', 'ejs');
+const viewsPath = path.resolve(__dirname, '../../views');
+app.set('views', viewsPath);
 
 app.get('/', (req, res) => {
-	res.json({
-		msg: 'ok app'
-	})
+	const products = ProductsController.getAll();
+	res.render('index', { products });
 })
+
+app.use(express.static('public'));
+app.use('/api', mainRouter);
 
 //tener cuidado con las rutas que ejecuten codigo asincrono mas adelante
 app.use((err, req, res, next) => {

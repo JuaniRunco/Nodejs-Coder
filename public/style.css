@@ -1,0 +1,27 @@
+*{
+  box-sizing: border-box;
+}
+.flex{
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.imagen {
+  width: 800px;
+}
+
+.tarjeta {
+  text-align: left;
+  max-width: 450px;
+}
+
+.maximoAncho{
+  margin: 0 auto;
+}
+
+.colorTexto a{
+  color: white;
+
+}

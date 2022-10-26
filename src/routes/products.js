@@ -3,11 +3,9 @@ const { ProductsController } = require('../controller/products');
 
 const router = Router();
 
-router.get('/', (req, res) => {
-    res.json({
-        msg: ProductsController.getAll()
-    })
-})
+router.get('/', async (req, res)=>{
+    res.render('form')
+ });
 
 router.get('/:id', (req, res) => {
     const id = req.params.id;
@@ -20,11 +18,15 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
 
-    const { body } = req
-
-    res.json({
-        msg: ProductsController.save(body)
-    })
+    const body = req.body;
+    console.log(body);
+    const newProduct = {
+        title: body.title,
+        price: body.price
+    };
+    
+    ProductsController.save(newProduct);
+    res.redirect('/');
 })
 
 router.put('/:id', (req, res) => {
