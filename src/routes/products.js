@@ -17,9 +17,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-
     const body = req.body;
-    console.log(body);
     const newProduct = {
         title: body.title,
         price: body.price
