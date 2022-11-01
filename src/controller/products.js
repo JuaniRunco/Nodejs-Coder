@@ -19,7 +19,7 @@ class ProductsAPI {
 	}
 
 	validateBody(data) {
-		if (typeof data.title === 'number') throw createError(400, 'Datos invalidos');
+		if (typeof data.title === 'number' || data.price <= 0) throw createError(400, 'Datos invalidos');
 	}
 
 	getAll() {
@@ -39,6 +39,7 @@ class ProductsAPI {
 			id: uuidv4(),
 			title: data.title,
 			price: parseInt(data.price),
+			img: data.img
 		}
 		this.products.push(newProduct);
 
