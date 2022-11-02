@@ -34,7 +34,7 @@ productForm.addEventListener("submit", (e) => {
 
   inputTitle.value = "";
   inputPrice.value = "";
-  //inputThumbnail.value = "";
+  inputImg.value = "";
 });
 
 socket.on("lastProduct", (lastProduct) => {
@@ -54,7 +54,7 @@ function AddNewProduct(lastProduct) {
     <div class="col-md-7">
       <div class="card-body">
         <h5 class="card-title">${lastProduct.title}</h5>
-        <p class="card-text">Precio ${lastProduct.price}</p>
+        <p class="card-text">Precio $${lastProduct.price}</p>
       </div>
     </div>
   </div>

@@ -11,80 +11,79 @@
 
 <body>
   <%- include('./partials/navbar.ejs') %>
-    <h1 style="text-align: center;">Cargar Producto</h1>
-    <div class="container">
-      <form method="POST" action="/api/products" id="productForm">
-        <div>
-          <input class="input" type="text" name="title" id="title" placeholder="Nombre" required>
-        </div>
-        <div>
-          <input class="input" type="number" name="price" id="price" placeholder="Precio" required>
-        </div>
-        <div>
-          <input class="input" type="text" name="price" id="img" placeholder="Url Imagen">
-        </div>
-        <div>
-          <input type="submit">
-        </div>
-      </form>
-    </div>
-
-    <h1>Lista Productos</h1>
-    <% if (products.length> 0) { %>
-      <div class="flex" id="tableContent">
-        <% products.forEach(item=> { %>
-          <div class="card m-2 tarjeta">
-            <div class="row g-0">
-              <div class="col-md-5">
-                <img class="img-fluid rounded-start imagen" src=<%=item.img %> >
-              </div>
-              <div class="col-md-7">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <%= item.title %>
-                  </h5>
-                  <p class="card-text">Precio $<%= item.price %>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <% }); %>
+  <h1 style="text-align: center;">Cargar Producto</h1>
+  <div class="container">
+    <form method="POST" action="/api/products" id="productForm">
+      <div>
+        <input class="input" type="text" name="title" id="title" placeholder="Nombre" required>
       </div>
-      <% } else {%>
-        <p>No hay datos</p>
-        <% } %>
+      <div>
+        <input class="input" type="number" name="price" id="price" placeholder="Precio" required>
+      </div>
+      <div>
+        <input class="input" type="text" name="price" id="img" placeholder="Url Imagen">
+      </div>
+      <div>
+        <input type="submit">
+      </div>
+    </form>
+  </div>
 
-          <h1 class="separacion">Centro de Mensajes</h1>
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 divForm">
-                <form action="" method="" class="" id="chatForm">
-                  <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
-                  </div>
-                  <div class="form-floating mb-3" id="chat">
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                        <div class="form-floating mb-3">
-                          <input type="text" class="form-control" id="message" placeholder="Mensaje" name="menssage"
-                            required>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                      <div class="form-floating mb-3">
-                        <input class="btn btn-info" type="submit" value="Enviar">
-                      </div>
-                    </div>
-                  </div>
-                </form>
+  <h1>Lista Productos</h1>
+  <% if (products.length> 0) { %>
+    <div class="flex" id="tableContent">
+      <% products.forEach(item=> { %>
+        <div class="card m-2 tarjeta">
+          <div class="row g-0">
+            <div class="col-md-5">
+              <img class="img-fluid rounded-start imagen" src=<%=item.img %> >
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= item.title %>
+                </h5>
+                <p class="card-text">Precio $<%= item.price %>
+                </p>
               </div>
             </div>
           </div>
+        </div>
+        <% }); %>
+    </div>
+  <% } else {%>
+    <p>No hay datos</p>
+  <% } %>
 
-          <script src="/socket.io/socket.io.js"></script>
-          <script src="js/main.js"></script>
+  <h1 class="separacion">Centro de Mensajes</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 divForm">
+        <form action="" method="" class="" id="chatForm">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+          </div>
+          <div class="form-floating mb-3" id="chat">
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="message" placeholder="Mensaje" name="menssage" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="form-floating mb-3">
+              <input class="btn btn-info" type="submit" value="Enviar">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
