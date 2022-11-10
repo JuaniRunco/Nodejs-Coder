@@ -1,0 +1,32 @@
+[
+	{
+		"id": "1",
+		"timestamp": "9/11/2022 15:09:46",
+		"nombre": "SMART TV SAMSUNG",
+		"descripcion": "SMART LED TV SAMSUNG 50 PULGADAS 4K UHD 50AU7000",
+		"codigo": 1234,
+		"foto": "https://i.postimg.cc/sgh3LmBS/download.jpg",
+		"precio": 15000,
+		"stock": 100
+	},
+	{
+		"id": "2",
+		"timestamp": "9/11/2022 16:16:36",
+		"nombre": "Samsung Galaxy S20",
+		"descripcion": "Celular Samsung Galaxy S20 FE 5G 128GB Azul",
+		"codigo": 5678,
+		"foto": "https://i.postimg.cc/sgh3LmBS/download.jpg",
+		"precio": 16000,
+		"stock": 200
+	},
+	{
+		"id": "3",
+		"timestamp": "9/11/2022 17:16:36",
+		"nombre": "Notebook Lenovo",
+		"descripcion": "Notebook Lenovo IdeaPad 14' 4GB 256GB Core i3 81WA00D8AR",
+		"codigo": 9101,
+		"foto": "https://i.postimg.cc/sgh3LmBS/download.jpg",
+		"precio": 12000,
+		"stock": 150
+	}
+]
