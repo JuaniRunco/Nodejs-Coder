@@ -152,7 +152,7 @@ db.products.find({},{title:1}).sort({price:1}).skip(2).limit(1)
 // Agregamos el campo 'stock' en todos los documentos de la colección 'products'
 db.products.updateMany({},{$set:{stock:100}})
 
-// Actualizamos todos los documentos de la colección 'products' que posean precio mayo a 4000, se le pasa el stock a 0
+// Actualizamos todos los documentos de la colección 'products' que posean precio mayor a 4000, se le pasa el stock a 0
 db.products.updateMany({price:{$gt:4000}},{$set: {stock:0}})
 
 // Eliminamos todos los documentos de la colección 'products' que posean un precio menor a 1000
