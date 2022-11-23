@@ -1,0 +1,172 @@
+// Creamos la db
+use ecommerce 
+
+// Creamos la colección "products"
+db.createCollection('products')
+
+// Creamos la colección "messages"
+db.createCollection('message')
+
+// Creamos el array con 10 mensajes
+let chatMessage = [
+    {
+        email: 'juanirunco@gmail.com',
+        msg: 'Hola Fede',
+        time: '15:28 pm'
+    },
+    {
+        email: 'fede@gmail.com',
+        msg: 'Hola Juani',
+        time: '15:29 pm'
+    },
+    {
+        email: 'juanirunco@gmail.com',
+        msg: 'Como estas',
+        time: '15:30 pm'
+    },
+    {
+        email: 'fede@gmail.com',
+        msg: 'Bien y vos',
+        time: '15:31 pm'
+    },
+    {
+        email: 'juanirunco@gmail.com',
+        msg: 'Todo bien',
+        time: '15:32 pm'
+    },
+    {
+        email: 'fede@gmail.com',
+        msg: 'Me alegro',
+        time: '15:33 pm'
+    },
+    {
+        email: 'juanirunco@gmail.com',
+        msg: 'Chau Fede',
+        time: '15:34 pm'
+    },
+    {
+        email: 'fede@gmail.com',
+        msg: 'Chau Juani',
+        time: '15:35 pm'
+    },
+    {
+        email: 'juanirunco@gmail.com',
+        msg: 'Nos vemos Fede',
+        time: '15:36 pm'
+    },
+    {
+        email: 'fede@gmail.com',
+        msg: 'Nos vemos Juani',
+        time: '15:37 pm'
+    }
+]
+
+// Guardamos los mensajes en la colección 
+db.message.insertMany(chatMessage)
+
+// Creamos el array con 10 productos
+let cart = [
+    {
+        title:'Televisor',
+        price: 120,
+        thumbnail:'Foto 1'
+    },
+    {
+        title:'Heladera',
+        price: 580,
+        thumbnail:'Foto 2'
+    },
+    {
+        title:'Smart Tv',
+        price: 900,
+        thumbnail:'Foto 3'
+    },
+    {
+        title:'Notebook',
+        price: 1280,
+        thumbnail:'Foto 4'
+    },
+    {
+        title:'Silla',
+        price: 1700,
+        thumbnail:'Foto 5'
+    },
+    {
+        title:'Mesa',
+        price: 2300,
+        thumbnail:'Foto 6'
+    },
+    {
+        title:'Microondas',
+        price: 2860,
+        thumbnail:'Foto 7'
+    },
+    {
+        title:'Sillon',
+        price: 3350,
+        thumbnail:'Foto 8'
+    },
+    {
+        title:'Cama',
+        price: 4320,
+        thumbnail:'Foto 9'
+    },
+    {
+        title:'Camara',
+        price: 4990,
+        thumbnail:'Foto 10'
+    }
+]
+
+// Guardamos los productos en la colección
+db.products.insertMany(cart)
+
+// Para mostrar el contenido de ambas colecciones se ejecutan los siguientes comandos
+db.message.find().pretty()
+db.products.find().pretty()
+
+// Listamos la cantidad de documentos en ambas colecciones
+db.message.countDocuments()
+db.products.countDocuments()
+
+// Agregamos un producto nuevo a la coleccion 'products'
+db.products.insertOne({title:'Lavarropa',price: 4999, thumbnail:'Foto 11'})
+
+// Mostramos los documentos que tienen un precio menor a 1000 de la colección 'products'
+db.products.find({'price': {$lt: 1000}})
+
+// Mostramos los documentos que tienen un precio mayor a 1000 y menor a 3000 de la colección 'products'
+db.products.find({
+  $and:[
+    {price: {$gt: 1000}},
+    {price: {$lt: 3000}}
+    ]
+})
+
+// Mostramos los documentos que tienen un precio mayor a 3000 en la colección 'products'
+db.products.find({price: {$gt: 3000}})
+
+// Ordenamos los documentos de la colección 'products' del más barato al más caro y mostramos solo el nombre del tercer documento más barato
+db.products.find({},{title:1}).sort({price:1}).skip(2).limit(1)
+
+// Agregamos el campo 'stock' en todos los documentos de la colección 'products'
+db.products.updateMany({},{$set:{stock:100}})
+
+// Actualizamos todos los documentos de la colección 'products' que posean precio mayo a 4000, se le pasa el stock a 0
+db.products.updateMany({price:{$gt:4000}},{$set: {stock:0}})
+
+// Eliminamos todos los documentos de la colección 'products' que posean un precio menor a 1000
+db.products.deleteMany({price: {$lt:1000}})
+
+// Creamos un usuario de solo lectura para la db ecommerce
+db.createUser(
+  {
+    user:'pepe',
+    pwd:'asd456',
+    roles:[
+      {
+        role:'read',db:'ecommerce'
+      }]
+})
+
+** PARA PODER UTILIZAR EL USUARIO REINICIAMOS EL SERVIDOR CON mongod --auth y desde el cliente entramos como mongosh -u pepe -p asd456
