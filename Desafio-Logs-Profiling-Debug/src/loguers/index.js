@@ -47,7 +47,6 @@ app.get('/home', (req, res) => {
   logger.info(`${req.route} - ${req.method}`);
   try{
     throw 'esto es un error!';
-    res.json({ msg: 'Bienvenido!' });
   } catch(error) {
     logger.error(error);
     res.status(500).json({
