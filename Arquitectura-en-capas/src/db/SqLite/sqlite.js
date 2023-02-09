@@ -1,5 +1,5 @@
 import knex from "knex"
-import { dbOptions } from "../utils/db.js"
+import { dbOptions } from "./options/sqlite.options.js"
 
 class Db {
     constructor(){

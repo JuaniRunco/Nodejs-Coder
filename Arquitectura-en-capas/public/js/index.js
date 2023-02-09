@@ -25,6 +25,8 @@ PRODUCT.addEventListener('submit', (e) =>{
     THUMBNAIL.value = ""
 })
 const addTableProduct = (data) =>{
+
+    console.log(data);
     const trInput = document.createElement('tr')
     const id = document.createElement('td')
     const title = document.createElement('td')
@@ -34,7 +36,7 @@ const addTableProduct = (data) =>{
     const image = document.createElement('img')
 
     
-    id.innerText = data.id
+    id.innerText = data._id
     title.innerText = data.title
     price.innerText = data.price
     image.setAttribute('src', data.thumbnail)

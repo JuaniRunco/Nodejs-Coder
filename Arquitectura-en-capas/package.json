@@ -5,24 +5,26 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^2.0.20"
-  },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "knex": "^2.3.0",
+    "express-session": "^1.17.3",
+    "knex": "^2.4.2",
     "moment": "^2.29.4",
-    "mysql": "^2.3.3",
+    "mongoose": "^6.9.1",
+    "normalizr": "^3.6.2",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "pug": "^3.0.2",
-    "socket.io": "^4.5.3",
-    "sqlite3": "^5.1.2",
-    "uuid": "^9.0.0"
+    "socket.io": "^4.6.0",
+    "sqlite3": "^5.1.4"
   }
 }

@@ -5,10 +5,12 @@ html(lang="en")
             form(id='formMessage')
                 li 
                     label(for="email") Email: 
-                    input(type="email" id='email'  required name="email" placeholder='Ingrese su email')
+                    input(type="email" id='email' required name="email" autocomplete="off" placeholder='Ingrese su email' value=name)
                 li
                     label(for="msg") Mensaje: 
                     input( id="msg" type="text" placeholder="Ingrese su mensaje" required autocomplete="off")
                 button(type="submit") Enviar mensaje
 
     include components/message
+
+

@@ -129,7 +129,44 @@ body{
     font-style: italic;
     color: green;
 }
+h1 {
+    color: blue;
+}
 
+label {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.jumbotron {
+    min-height: 10vh;
+}
+.homeBody{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+.containerHome{
+    min-height: 400px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    gap: 100px; 
+}
+.containerHome a{
+    text-decoration: none;
+    color: black;
+    padding: 10px 60px;
+    border-radius: 5px;
+    border: 1px solid #888;
+}
+.containerHome a:hover{
+    background-color: #888;
+    color: white;
+    transition: 0.5s;
+}
 
 
 
