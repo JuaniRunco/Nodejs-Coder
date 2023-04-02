@@ -35,12 +35,12 @@ components:
           - adress
           - phone
         example:
-          email: amarengo.dev@gmail.com
-          password: "1234Admin"
-          name: Augusto
-          adress: La Plata
+          email: juanirunco.@gmail.com
+          password: "1234"
+          name: Juani
+          adress: Mendoza
           age: 28
-          phone: "+54900000000"
+          phone: "+542610000000"
           avatar: Foto
           admin: true
       loginUser:
@@ -56,8 +56,8 @@ components:
           - email
           - password
         example:
-          email: amarengo.dev@gmail.com
-          password: "1234Admin"
+          email: juanirunco.@gmail.com
+          password: "1234"
       products:
         type: object
         properties:
@@ -177,7 +177,7 @@ components:
           id: 6425da12d4b284f5225181a3
           timestamp: 30/3/2023, 15:50:43
           products: Ver ejemplo de productsDTO
-          email: augustomarengo@hotmail.com
+          email: juanirunco.@gmail.com
           estado: Generada
       pictureResponse:
         type: object
